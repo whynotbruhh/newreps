@@ -17,7 +17,8 @@ load_dotenv(override=True)
 app = FastAPI(
     title="Insurance Clause Evaluator API", # Updated Title
     description="API for evaluating insurance queries against document clauses using Gemini (for embeddings), OpenRouter (for generation), and MongoDB Atlas.", # Updated Description
-    version="1.0.0"
+    version="1.0.0",
+    docs_url="/"
 )
 
 # --- CORS Configuration ---
@@ -298,6 +299,6 @@ async def evaluate_claim_with_pdf(request: ChatRequest): # Function name changed
     )
 
 # --- Basic Health Check Endpoint ---
-@app.get("/")
-async def root():
-    return {"message": "Insurance Clause Evaluator API is running! Use /evaluate endpoint for claim queries."}
+#@app.get("/")
+#async def root():
+#    return {"message": "Insurance Clause Evaluator API is running! Use /evaluate endpoint for claim queries."}
