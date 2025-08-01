@@ -263,7 +263,7 @@ class EvaluationResponse(BaseModel): # Renamed to better reflect purpose
     clauses_used: List[str] = Field([], description="Direct quotes of the specific clauses from the document used for the decision.")
     source_chunks_retrieved: List[ClauseDetail] = Field([], description="The raw chunks retrieved from the document store, for debugging/transparency.") # Added for transparency
 
-@app.post("/evaluate", response_model=EvaluationResponse) # Endpoint changed to /evaluate
+@app.post("/hackrx/run", response_model=EvaluationResponse) # Endpoint changed to /evaluate
 async def evaluate_claim_with_pdf(request: ChatRequest): # Function name changed
     """
     Evaluates an insurance claim query against document clauses and returns a structured decision.
